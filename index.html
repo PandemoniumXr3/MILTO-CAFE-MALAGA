@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>MILTO Specialty Coffee</title>
 
@@ -12,348 +12,224 @@
 
 <body>
 
-  <!-- NAV -->
+<nav>
 
-  <nav>
+  <div class="logo">
+    MILTO
+  </div>
 
-    <div class="logo">
-      MILTO
+  <div class="nav-links">
+    <a href="#space">Space</a>
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#visit">Visit</a>
+  </div>
+
+</nav>
+
+<header class="hero">
+
+  <div class="hero-text reveal">
+
+    <div class="kicker">
+      Specialty Coffee · Málaga
     </div>
 
-    <div class="nav-links">
-      <a href="#space">Space</a>
-      <a href="#menu">Menu</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#visit">Visit</a>
-    </div>
+    <h1>
+      MILTO<br>
+      Coffee
+    </h1>
 
-  </nav>
+    <p>
+      Calm specialty coffee, brunch and warm interiors in Málaga.
+    </p>
 
-  <!-- HERO -->
+    <div class="hero-buttons">
 
-  <header class="hero">
+      <a href="#menu" class="btn btn-light">
+        View Menu
+      </a>
 
-    <div class="hero-text reveal">
-
-      <div class="kicker">
-        Specialty Coffee · Brunch · Málaga
-      </div>
-
-      <h1>
-        MILTO<br>
-        Coffee
-      </h1>
-
-      <p>
-        A calm specialty coffee space in Málaga built around
-        warm interiors, healthy brunch and proper coffee.
-      </p>
-
-      <div class="hero-actions">
-
-        <a href="#menu" class="btn btn-light">
-          View Menu
-        </a>
-
-        <a href="#visit" class="btn btn-outline">
-          Visit Café
-        </a>
-
-      </div>
+      <a href="#visit" class="btn btn-outline">
+        Visit Café
+      </a>
 
     </div>
 
-    <div class="hero-images">
+  </div>
+
+  <div class="hero-grid">
+
+    <div class="image-hover reveal">
+      <img src="./images/image1.jpeg">
+    </div>
+
+    <div class="image-hover reveal">
+      <img src="./images/image2.jpeg">
+    </div>
+
+    <div class="image-hover reveal">
+      <img src="./images/image3.jpeg">
+    </div>
+
+  </div>
+
+</header>
+
+<section id="space">
+
+  <div class="section-head reveal">
+
+    <h2>
+      Warm interior.<br>
+      Calm atmosphere.
+    </h2>
+
+    <p>
+      Green tiles, books, natural textures and specialty drinks
+      designed for slow mornings and relaxed brunch.
+    </p>
+
+  </div>
+
+  <div class="editorial-grid">
+
+    <div class="image-hover reveal">
+      <img src="./images/image4.jpeg">
+    </div>
+
+    <div class="editorial-side">
 
       <div class="image-hover reveal">
-        <img src="./images/image1.jpeg">
+        <img src="./images/image5.jpeg">
       </div>
 
       <div class="image-hover reveal">
-        <img src="./images/image2.jpeg">
-      </div>
-
-      <div class="image-hover reveal">
-        <img src="./images/image3.jpeg">
+        <img src="./images/image6.jpeg">
       </div>
 
     </div>
 
-  </header>
+  </div>
 
-  <!-- SPACE -->
+</section>
 
-  <section id="space">
+<section class="menu-section" id="menu">
 
-    <div class="section-head reveal">
+  <div class="section-head reveal">
 
-      <h2>
-        Calm interior.<br>
-        Warm atmosphere.
-      </h2>
+    <h2 style="color:white;">
+      Menu
+    </h2>
 
-      <p>
-        Green tiles, books, natural textures and specialty drinks
-        designed for slow mornings and relaxed brunch.
-      </p>
+    <p style="color:#cfcfcf;">
+      English and Spanish menu with clean dietary labels.
+    </p>
 
+  </div>
+
+  <div class="lang-switch reveal">
+
+    <button class="active" onclick="setLang('en', this)">
+      EN
+    </button>
+
+    <button onclick="setLang('es', this)">
+      ES
+    </button>
+
+  </div>
+
+  <div id="menuContent" class="menu-grid"></div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+  <div class="section-head reveal">
+
+    <h2 style="color:white;">
+      Signature dishes
+    </h2>
+
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="image-hover reveal">
+      <img src="./images/image7.jpeg">
     </div>
 
-    <div class="editorial-grid">
-
-      <div class="image-hover reveal">
-        <img src="./images/image4.jpeg">
-      </div>
-
-      <div class="editorial-side">
-
-        <div class="image-hover reveal">
-          <img src="./images/image5.jpeg">
-        </div>
-
-        <div class="image-hover reveal">
-          <img src="./images/image6.jpeg">
-        </div>
-
-      </div>
-
+    <div class="image-hover reveal">
+      <img src="./images/image8.jpeg">
     </div>
 
-    <div class="brand-strip">
-
-      <div class="brand-card reveal">
-        <h3>Specialty Coffee</h3>
-        <p>Flat whites, iced drinks and slow coffee.</p>
-      </div>
-
-      <div class="brand-card reveal">
-        <h3>Healthy Brunch</h3>
-        <p>Bowls, toast and fresh ingredients.</p>
-      </div>
-
-      <div class="brand-card reveal">
-        <h3>Vegan Friendly</h3>
-        <p>Clear dietary labels and options.</p>
-      </div>
-
-      <div class="brand-card reveal">
-        <h3>Calm Workspace</h3>
-        <p>Comfortable atmosphere for reading and work.</p>
-      </div>
-
+    <div class="image-hover reveal">
+      <img src="./images/image9.jpeg">
     </div>
 
-  </section>
+    <div class="image-hover reveal">
+      <img src="./images/image10.jpeg">
+    </div>
 
-  <!-- MENU -->
+  </div>
 
-  <section class="menu-section" id="menu">
+</section>
 
-    <div class="menu-top">
+<section class="visit" id="visit">
 
-      <div class="section-head reveal">
+  <div class="visit-grid">
 
-        <h2 style="color:white;">
-          Menu
+    <div class="visit-info reveal">
+
+      <div>
+
+        <h2>
+          Visit<br>
+          MILTO
         </h2>
 
-        <p style="color:#ccc;">
-          English and Spanish menu with clean dietary labels.
-        </p>
-
-      </div>
-
-      <div class="lang-switch reveal">
-
-        <button class="active" onclick="setLang('en', this)">
-          EN
-        </button>
-
-        <button onclick="setLang('es', this)">
-          ES
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="labels reveal">
-
-      <span class="label">Vegan</span>
-      <span class="label">Gluten-Free</span>
-      <span class="label">GF Option</span>
-
-    </div>
-
-    <div id="menuContent" class="menu-grid"></div>
-
-  </section>
-
-  <!-- GALLERY -->
-
-  <section class="gallery" id="gallery">
-
-    <div class="section-head reveal">
-
-      <h2 style="color:white;">
-        Signature dishes
-      </h2>
-
-      <p style="color:#d7ddd8;">
-        Fresh brunch plates and specialty drinks.
-      </p>
-
-    </div>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-card image-hover reveal">
-        <img src="./images/image7.jpeg">
-      </div>
-
-      <div class="gallery-card image-hover reveal">
-        <img src="./images/image8.jpeg">
-      </div>
-
-      <div class="gallery-card image-hover reveal">
-        <img src="./images/image9.jpeg">
-      </div>
-
-      <div class="gallery-card image-hover reveal">
-        <img src="./images/image10.jpeg">
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- REVIEWS -->
-
-  <section id="reviews">
-
-    <div class="section-head reveal">
-
-      <h2>
-        What people say
-      </h2>
-
-    </div>
-
-    <div class="review-grid">
-
-      <div class="review-card reveal">
-        <p>
-          “One of the best specialty coffee spots in Málaga.”
-        </p>
-        <strong>Google Review</strong>
-      </div>
-
-      <div class="review-card reveal">
-        <p>
-          “Amazing atmosphere, beautiful interior and great brunch.”
-        </p>
-        <strong>Visitor</strong>
-      </div>
-
-      <div class="review-card reveal">
-        <p>
-          “Perfect café to work for a few hours.”
-        </p>
-        <strong>Remote worker</strong>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- INSTAGRAM -->
-
-  <section class="instagram">
-
-    <div class="section-head reveal">
-
-      <h2>
-        Latest from Instagram
-      </h2>
-
-      <p>
-        Daily coffee, brunch and moments from the café.
-      </p>
-
-    </div>
-
-    <iframe
-      src="https://www.instagram.com/miltocoffee/embed"
-      width="100%"
-      height="700"
-      frameborder="0">
-    </iframe>
-
-  </section>
-
-  <!-- VISIT -->
-
-  <section class="visit" id="visit">
-
-    <div class="visit-grid">
-
-      <div class="visit-info reveal">
-
-        <div>
-
-          <h2>
-            Visit MILTO
-          </h2>
-
-          <div class="info-list">
-
-            <div class="info-card">
-              <strong>Address</strong><br>
-              Plaza de Toros Vieja 29, Málaga
-            </div>
-
-            <div class="info-card">
-              <strong>Instagram</strong><br>
-              @miltocoffee
-            </div>
-
-            <div class="info-card">
-              <strong>Phone</strong><br>
-              +34 614 96 62 31
-            </div>
-
-          </div>
-
+        <div class="info-card">
+          Plaza de Toros Vieja 29, Málaga
         </div>
 
-        <a href="#" class="btn btn-light">
-          Open Google Maps
-        </a>
+        <div class="info-card">
+          @miltocoffee
+        </div>
+
+        <div class="info-card">
+          +34 614 96 62 31
+        </div>
 
       </div>
 
-      <div class="image-hover reveal">
-        <img src="./images/image11.jpeg">
-      </div>
+      <a href="#" class="btn btn-light">
+        Open Google Maps
+      </a>
 
     </div>
 
-  </section>
-
-  <footer>
-
-    <div>
-      MILTO Specialty Coffee
+    <div class="image-hover reveal">
+      <img src="./images/image11.jpeg">
     </div>
 
-    <div>
-      Málaga · Specialty Coffee · Brunch
-    </div>
+  </div>
 
-  </footer>
+</section>
 
-  <script src="script.js"></script>
+<footer>
+
+  <div>
+    MILTO Specialty Coffee
+  </div>
+
+  <div>
+    Málaga · Brunch · Specialty Coffee
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>

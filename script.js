@@ -25,11 +25,10 @@ const menuData = {
     {
       title: "Coffee",
       items: [
-        ["Espresso", "€2.20", ""],
-        ["Flat White", "€3.00", ""],
-        ["Cappuccino", "€2.80", ""],
-        ["Iced Latte", "€3.50", ""],
-        ["Matcha Latte", "€3.20", ""]
+        ["Espresso", "€2.20", "Strong specialty espresso."],
+        ["Flat White", "€3.00", "Smooth milk and double shot."],
+        ["Matcha Latte", "€3.20", "Creamy ceremonial matcha."],
+        ["Cold Brew", "€3.40", "Slow brewed iced coffee."]
       ]
     },
 
@@ -47,11 +46,10 @@ const menuData = {
     {
       title: "Café",
       items: [
-        ["Espresso", "€2.20", ""],
-        ["Flat White", "€3.00", ""],
-        ["Cappuccino", "€2.80", ""],
-        ["Iced Latte", "€3.50", ""],
-        ["Matcha Latte", "€3.20", ""]
+        ["Espresso", "€2.20", "Espresso de especialidad."],
+        ["Flat White", "€3.00", "Leche suave y doble shot."],
+        ["Matcha Latte", "€3.20", "Matcha cremosa."],
+        ["Cold Brew", "€3.40", "Café frío infusionado."]
       ]
     },
 
@@ -90,7 +88,6 @@ function renderMenu(lang){
 
           <div class="item-name">
             ${item[0]}
-            <span class="food-tag">Vegan</span>
           </div>
 
           <div class="item-desc">
