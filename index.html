@@ -1,235 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILTO Specialty Coffee</title>
 
-  <title>MILTO Specialty Coffee</title>
+<style>
+:root{
+  --bg:#f5f1ea;
+  --black:#101010;
+  --green:#244031;
+  --paper:#f8f3ec;
+  --muted:#6f6f6f;
+}
 
-  <link rel="stylesheet" href="style.css">
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial, Helvetica, sans-serif;background:var(--bg);color:var(--black);overflow-x:hidden}
+img{width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+
+section{padding:100px 6vw}
+
+nav{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:1400px;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 26px;
+  border-radius:999px;
+  background:rgba(10,10,10,.78);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.logo{color:white;font-size:34px;font-weight:900;letter-spacing:-2px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:white;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+
+.hero{
+  min-height:100vh;
+  background:#0d0d0d;
+  color:white;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  align-items:center;
+  padding:140px 6vw 80px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#d7d1c8;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(80px,12vw,160px);
+  line-height:.82;
+  letter-spacing:-7px;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.hero p{
+  max-width:560px;
+  font-size:20px;
+  line-height:1.6;
+  color:#d5d0ca;
+  margin-bottom:34px;
+}
+
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 22px;
+  border-radius:999px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:800;
+}
+
+.btn-light{background:white;color:black}
+.btn-outline{border:1px solid rgba(255,255,255,.16);color:white}
+.btn-dark{background:#111;color:white}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.hero-grid img{
+  height:280px;
+  border-radius:30px;
+}
+
+.hero-grid .big{
+  grid-column:span 2;
+}
+
+.hero-grid .big img{
+  height:430px;
+}
+
+.image-hover{
+  overflow:hidden;
+  border-radius:30px;
+}
+
+.image-hover img{
+  transition:transform .8s ease;
+}
+
+.image-hover:hover img{
+  transform:scale(1.05);
+}
+
+.section-head{
+  max-width:780px;
+  margin-bottom:40px;
+}
+
+.section-head h2{
+  font-size:clamp(50px,7vw,95px);
+  line-height:.9;
+  letter-spacing:-4px;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+.section-head p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:18px;
+}
+
+.editorial-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:20px;
+}
+
+.editorial-grid img{
+  border-radius:30px;
+}
+
+.editorial-main img{
+  height:700px;
+}
+
+.editorial-side{
+  display:grid;
+  gap:20px;
+}
+
+.editorial-side img{
+  height:340px;
+}
+
+.features{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.feature{
+  background:white;
+  border-radius:24px;
+  padding:24px;
+  border:1px solid rgba(0,0,0,.08);
+}
+
+.feature h3{margin-bottom:8px;font-size:18px}
+.feature p{color:var(--muted);font-size:14px;line-height:1.5}
+
+.menu-section{
+  background:#111;
+  color:white;
+}
+
+.menu-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  margin-bottom:30px;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+  background:rgba(255,255,255,.08);
+  padding:6px;
+  border-radius:999px;
+}
+
+.lang-switch button{
+  border:0;
+  background:transparent;
+  color:white;
+  padding:11px 18px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.lang-switch button.active{
+  background:white;
+  color:black;
+}
+
+.labels{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.label{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#ddd;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.menu-card{
+  background:var(--paper);
+  color:#111;
+  border-radius:30px;
+  padding:30px;
+}
+
+.menu-card h3{
+  font-size:30px;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+.item{
+  border-top:1px solid rgba(0,0,0,.08);
+  padding:16px 0;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+}
+
+.item-name{font-weight:900;margin-bottom:4px}
+.item-desc{color:#757575;font-size:14px;line-height:1.45}
+.price{font-weight:900;white-space:nowrap}
+
+.gallery{
+  background:var(--green);
+  color:white;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.gallery-grid img{
+  height:320px;
+  border-radius:30px;
+}
+
+.instagram-section{
+  background:#f6f2eb;
+}
+
+.insta-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.insta-grid a{
+  display:block;
+  overflow:hidden;
+  border-radius:28px;
+}
+
+.insta-grid img{
+  height:320px;
+  border-radius:28px;
+}
+
+.insta-button{
+  margin-top:28px;
+}
+
+.visit{
+  background:#f8f3ec;
+}
+
+.visit-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:24px;
+}
+
+.visit-info{
+  background:#111;
+  color:white;
+  border-radius:30px;
+  padding:36px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.visit-info h2{
+  font-size:80px;
+  line-height:.9;
+  letter-spacing:-5px;
+  margin-bottom:28px;
+  text-transform:uppercase;
+}
+
+.info-card{
+  padding:18px;
+  border-radius:18px;
+  margin-bottom:14px;
+  background:rgba(255,255,255,.08);
+  color:#e3e3e3;
+}
+
+.info-card strong{color:white}
+
+.visit-grid img{
+  height:760px;
+  border-radius:30px;
+}
+
+footer{
+  background:#111;
+  color:#c9c9c9;
+  padding:30px 6vw;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:950px){
+  .hero,
+  .editorial-grid,
+  .menu-top,
+  .menu-grid,
+  .visit-grid{
+    grid-template-columns:1fr;
+  }
+
+  .menu-top{
+    display:block;
+  }
+
+  .gallery-grid,
+  .insta-grid,
+  .features{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .editorial-main img,
+  .visit-grid img{
+    height:420px;
+  }
+}
+
+@media(max-width:650px){
+  section{padding:80px 5vw}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:120px 5vw 70px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-grid .big{grid-column:auto}
+  .hero-grid img,
+  .hero-grid .big img{height:340px}
+  .gallery-grid,
+  .insta-grid,
+  .features{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-
-  <div class="logo">
-    MILTO
-  </div>
-
+  <div class="logo">MILTO</div>
   <div class="nav-links">
     <a href="#space">Space</a>
     <a href="#menu">Menu</a>
     <a href="#gallery">Gallery</a>
+    <a href="#instagram">Instagram</a>
     <a href="#visit">Visit</a>
   </div>
-
 </nav>
 
 <header class="hero">
-
   <div class="hero-text reveal">
-
-    <div class="kicker">
-      Specialty Coffee · Málaga
-    </div>
-
-    <h1>
-      MILTO<br>
-      Coffee
-    </h1>
-
+    <div class="kicker">Specialty Coffee · Brunch · Málaga</div>
+    <h1>MILTO<br>Coffee</h1>
     <p>
-      Calm specialty coffee, brunch and warm interiors in Málaga.
+      A calm specialty coffee space in Málaga built around warm interiors,
+      healthy brunch and proper coffee.
     </p>
 
     <div class="hero-buttons">
-
-      <a href="#menu" class="btn btn-light">
-        View Menu
-      </a>
-
-      <a href="#visit" class="btn btn-outline">
-        Visit Café
-      </a>
-
+      <a href="#menu" class="btn btn-light">View Menu</a>
+      <a href="#visit" class="btn btn-outline">Visit Café</a>
     </div>
-
   </div>
 
   <div class="hero-grid">
-
-    <div class="image-hover reveal">
-      <img src="./images/image1.jpeg">
+    <div class="image-hover reveal big">
+      <img src="./images/image1.jpeg" alt="MILTO interior">
     </div>
-
     <div class="image-hover reveal">
-      <img src="./images/image2.jpeg">
+      <img src="./images/image2.jpeg" alt="MILTO coffee">
     </div>
-
     <div class="image-hover reveal">
-      <img src="./images/image3.jpeg">
+      <img src="./images/image3.jpeg" alt="MILTO drink">
     </div>
-
   </div>
-
 </header>
 
 <section id="space">
-
   <div class="section-head reveal">
-
-    <h2>
-      Warm interior.<br>
-      Calm atmosphere.
-    </h2>
-
+    <h2>Warm interior.<br>Calm atmosphere.</h2>
     <p>
-      Green tiles, books, natural textures and specialty drinks
-      designed for slow mornings and relaxed brunch.
+      Green tiles, books, natural textures and specialty drinks designed for
+      slow mornings, focused work and relaxed brunch.
     </p>
-
   </div>
 
   <div class="editorial-grid">
-
-    <div class="image-hover reveal">
-      <img src="./images/image4.jpeg">
+    <div class="editorial-main image-hover reveal">
+      <img src="./images/image4.jpeg" alt="MILTO seating area">
     </div>
 
     <div class="editorial-side">
-
       <div class="image-hover reveal">
-        <img src="./images/image5.jpeg">
+        <img src="./images/image5.jpeg" alt="MILTO counter">
       </div>
-
       <div class="image-hover reveal">
-        <img src="./images/image6.jpeg">
+        <img src="./images/image6.jpeg" alt="MILTO lounge corner">
       </div>
-
     </div>
-
   </div>
 
+  <div class="features">
+    <div class="feature reveal">
+      <h3>Specialty Coffee</h3>
+      <p>Flat whites, iced drinks, matcha and slow coffee.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Power Brunch</h3>
+      <p>Bowls, toast, pancakes and fresh ingredients.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Clear Labels</h3>
+      <p>Vegan and gluten-free options are easy to understand.</p>
+    </div>
+    <div class="feature reveal">
+      <h3>Designed to Stay</h3>
+      <p>Comfortable atmosphere for reading, working and relaxing.</p>
+    </div>
+  </div>
 </section>
 
 <section class="menu-section" id="menu">
+  <div class="menu-top">
+    <div class="section-head reveal" style="margin-bottom:0;">
+      <h2 style="color:white;">Menu</h2>
+      <p style="color:#cfcfcf;">English and Spanish menu with clean dietary labels.</p>
+    </div>
 
-  <div class="section-head reveal">
-
-    <h2 style="color:white;">
-      Menu
-    </h2>
-
-    <p style="color:#cfcfcf;">
-      English and Spanish menu with clean dietary labels.
-    </p>
-
+    <div class="lang-switch reveal">
+      <button class="active" onclick="setLang('en', this)">EN</button>
+      <button onclick="setLang('es', this)">ES</button>
+    </div>
   </div>
 
-  <div class="lang-switch reveal">
-
-    <button class="active" onclick="setLang('en', this)">
-      EN
-    </button>
-
-    <button onclick="setLang('es', this)">
-      ES
-    </button>
-
+  <div class="labels reveal">
+    <span class="label">Vegan</span>
+    <span class="label">Gluten-Free</span>
+    <span class="label">GF Option</span>
+    <span class="label">Order at the bar</span>
   </div>
 
   <div id="menuContent" class="menu-grid"></div>
-
 </section>
 
 <section class="gallery" id="gallery">
-
   <div class="section-head reveal">
-
-    <h2 style="color:white;">
-      Signature dishes
-    </h2>
-
+    <h2 style="color:white;">Signature dishes</h2>
+    <p style="color:#d7ddd8;">Fresh brunch plates and specialty drinks.</p>
   </div>
 
   <div class="gallery-grid">
+    <div class="image-hover reveal"><img src="./images/image7.jpeg" alt="MILTO dish"></div>
+    <div class="image-hover reveal"><img src="./images/image8.jpeg" alt="MILTO pancakes"></div>
+    <div class="image-hover reveal"><img src="./images/image9.jpeg" alt="MILTO brunch"></div>
+    <div class="image-hover reveal"><img src="./images/image10.jpeg" alt="MILTO drink"></div>
+  </div>
+</section>
 
-    <div class="image-hover reveal">
-      <img src="./images/image7.jpeg">
-    </div>
-
-    <div class="image-hover reveal">
-      <img src="./images/image8.jpeg">
-    </div>
-
-    <div class="image-hover reveal">
-      <img src="./images/image9.jpeg">
-    </div>
-
-    <div class="image-hover reveal">
-      <img src="./images/image10.jpeg">
-    </div>
-
+<section class="instagram-section" id="instagram">
+  <div class="section-head reveal">
+    <h2>Follow MILTO</h2>
+    <p>Coffee, brunch and daily moments from Málaga.</p>
   </div>
 
+  <div class="insta-grid">
+    <a href="https://www.instagram.com/miltocoffee/" target="_blank" class="image-hover reveal">
+      <img src="./images/image2.jpeg" alt="MILTO coffee">
+    </a>
+    <a href="https://www.instagram.com/miltocoffee/" target="_blank" class="image-hover reveal">
+      <img src="./images/image7.jpeg" alt="MILTO brunch">
+    </a>
+    <a href="https://www.instagram.com/miltocoffee/" target="_blank" class="image-hover reveal">
+      <img src="./images/image8.jpeg" alt="MILTO pancakes">
+    </a>
+    <a href="https://www.instagram.com/miltocoffee/" target="_blank" class="image-hover reveal">
+      <img src="./images/image3.jpeg" alt="MILTO drink">
+    </a>
+  </div>
+
+  <a href="https://www.instagram.com/miltocoffee/" target="_blank" class="btn btn-dark insta-button reveal">
+    Follow @miltocoffee
+  </a>
 </section>
 
 <section class="visit" id="visit">
-
   <div class="visit-grid">
-
     <div class="visit-info reveal">
-
       <div>
-
-        <h2>
-          Visit<br>
-          MILTO
-        </h2>
+        <h2>Visit<br>MILTO</h2>
 
         <div class="info-card">
+          <strong>Address</strong><br>
           Plaza de Toros Vieja 29, Málaga
         </div>
 
         <div class="info-card">
+          <strong>Instagram</strong><br>
           @miltocoffee
         </div>
 
         <div class="info-card">
+          <strong>Phone</strong><br>
           +34 614 96 62 31
         </div>
 
+        <div class="info-card">
+          <strong>Service</strong><br>
+          Order at the bar and the team brings it to your table.
+        </div>
       </div>
 
-      <a href="#" class="btn btn-light">
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=MILTO%20Specialty%20Coffee%20Plaza%20de%20Toros%20Vieja%2029%20Malaga"
+        target="_blank"
+        class="btn btn-light"
+        style="margin-top:28px;">
         Open Google Maps
       </a>
-
     </div>
 
     <div class="image-hover reveal">
-      <img src="./images/image11.jpeg">
+      <img src="./images/image11.jpeg" alt="MILTO exterior">
     </div>
-
   </div>
-
 </section>
 
 <footer>
-
-  <div>
-    MILTO Specialty Coffee
-  </div>
-
-  <div>
-    Málaga · Brunch · Specialty Coffee
-  </div>
-
+  <div>MILTO Specialty Coffee</div>
+  <div>Málaga · Brunch · Specialty Coffee</div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 80){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+const menuData = {
+  en: [
+    {
+      title: "Coffee",
+      items: [
+        ["Espresso", "€2.20", "Strong specialty espresso."],
+        ["Double espresso", "€2.30", ""],
+        ["Americano", "€2.30", "Double shot."],
+        ["Cappuccino", "€2.80", ""],
+        ["Cortado", "€2.40", ""],
+        ["Cold Brew", "€3.40", ""],
+        ["Flat White", "€3.00", ""],
+        ["Latte", "€2.80", ""],
+        ["Iced Latte", "€3.50", ""],
+        ["Batch Brew", "€3.00", ""],
+        ["Extra shot", "+€0.30", ""],
+        ["Extra plant-based milk", "+€0.30", ""]
+      ]
+    },
+    {
+      title: "Juices & Smoothies",
+      items: [
+        ["Chai Latte", "€3.40", ""],
+        ["Matcha Latte", "€3.20", ""],
+        ["Iced Matcha", "€4.00", ""],
+        ["Tea", "€2.40", "Ask for varieties."],
+        ["Fresh Orange Juice", "€3.50", "Vegan · Gluten-free"],
+        ["Green Juice", "€5.50", "Celery, pineapple, green apple, lemon, spinach, orange and coconut water. Vegan · Gluten-free"],
+        ["Detox Shot", "€3.50", "Turmeric, black pepper, ginger, orange and lemon. Vegan · Gluten-free"],
+        ["Banana Cacao Power", "€5.50", "Banana, pure cacao, oat milk and honey or dates. Vegan option."],
+        ["Berry Mix", "€5.50", "Blueberries, raspberries, strawberry, Greek yogurt and honey. Vegan option available."]
+      ]
+    },
+    {
+      title: "Power Brunch",
+      items: [
+        ["Mediterranean Toast", "€9.50", "Sourdough bread, burrata, rocket, Iberian ham and sun-dried tomatoes with EVOO. GF option."],
+        ["AvoToast", "€7.90", "Sourdough bread, avocado, confit cherry tomatoes, feta, oregano, beet hummus, EVOO and Maldon salt. Vegan without feta. GF option."],
+        ["Salmon AvoToast", "€9.50", "Rye bread, avocado cream, smoked salmon, poached egg, dill and lemon zest. GF option."],
+        ["Milto Toast", "€8.70", "Sourdough bread, avocado cream, spinach, scrambled eggs, tomato and seeds. Tofu instead of eggs +€1.00. GF option."],
+        ["Eggs Benedict", "€12.50", "Brioche bread, avocado, bacon, soft-poached egg, hollandaise sauce and sprouts. Optional smoked salmon +€2.20."],
+        ["Protein Pancakes", "€10.00", "Gluten-free oat pancakes, peanut butter ganache, seasonal fruit, cacao crumble and nuts."]
+      ]
+    },
+    {
+      title: "Bowls & Salads",
+      items: [
+        ["Milto Bowl", "€7.50", "Greek yogurt, granola, seasonal fruit, syrup and coconut flakes. Vegan option."],
+        ["Açaí Bowl", "€9.50", "Açaí, banana, strawberry, granola and peanut butter. Vegan · Gluten-free."],
+        ["Mediterranean Salad", "€12.80", "Quinoa, burrata, roasted cherry tomatoes, cucumber, olives, rocket, basil, mint and almonds. Vegan without burrata."],
+        ["Halloumi, Avocado & Beetroot", "€9.80", "Grilled halloumi, roasted beetroot, avocado, rocket and walnuts. Gluten-free."],
+        ["Tofu & Cherrys", "€9.00", "Grilled tofu, cherry tomatoes, avocado, mixed greens, red onion and sesame. Vegan · Gluten-free."]
+      ]
+    }
+  ],
+
+  es: [
+    {
+      title: "Café",
+      items: [
+        ["Espresso", "€2.20", "Espresso de especialidad."],
+        ["Doble espresso", "€2.30", ""],
+        ["Americano", "€2.30", "Doble shot."],
+        ["Cappuccino", "€2.80", ""],
+        ["Cortado", "€2.40", ""],
+        ["Cold Brew", "€3.40", ""],
+        ["Flat White", "€3.00", ""],
+        ["Latte", "€2.80", ""],
+        ["Iced Latte", "€3.50", ""],
+        ["Batch Brew", "€3.00", ""],
+        ["Extra shot", "+€0.30", ""],
+        ["Extra leche vegetal", "+€0.30", ""]
+      ]
+    },
+    {
+      title: "Zumos y Batidos",
+      items: [
+        ["Chai Latte", "€3.40", ""],
+        ["Matcha Latte", "€3.20", ""],
+        ["Iced Matcha", "€4.00", ""],
+        ["Té", "€2.40", "Consultar variedades."],
+        ["Zumo de naranja natural", "€3.50", "Vegano · Sin gluten"],
+        ["Jugo verde", "€5.50", "Apio, piña, manzana verde, limón, espinaca, naranja y agua de coco. Vegano · Sin gluten"],
+        ["Shot Detox", "€3.50", "Cúrcuma, pimienta negra, jengibre, naranja y limón. Vegano · Sin gluten"],
+        ["Banana Cacao Power", "€5.50", "Banana, cacao puro, leche de avena y miel o dátiles. Opción vegana."],
+        ["Berry Mix", "€5.50", "Arándanos, frambuesas, fresa, yogur griego y miel. Opción vegana disponible."]
+      ]
+    },
+    {
+      title: "Power Brunch",
+      items: [
+        ["Tosta Mediterránea", "€9.50", "Pan de masa madre, burrata, rúcula, jamón ibérico y tomates secos en AOVE. Opción sin gluten."],
+        ["AvoToast", "€7.90", "Pan de masa madre, aguacate, cherry confitado, feta, orégano, hummus de remolacha, AOVE y sal Maldon. Vegano sin feta."],
+        ["Salmon AvoToast", "€9.50", "Pan de centeno, crema de aguacate, salmón ahumado, huevo poché, eneldo y limón. Opción sin gluten."],
+        ["Tosta Milto", "€8.70", "Pan de masa madre, crema de aguacate, espinaca, huevos revueltos, tomate y semillas. Tofu en reemplazo del huevo +€1.00."],
+        ["Huevos Benedictinos", "€12.50", "Pan brioche, aguacate, bacon, huevo a baja temperatura, salsa holandesa y brotes."],
+        ["Pancakes Proteicos", "€10.00", "Pancakes de avena sin gluten, ganache de mantequilla de maní, fruta, crumble de cacao y frutos secos."]
+      ]
+    },
+    {
+      title: "Bowls y Ensaladas",
+      items: [
+        ["Bowl Milto", "€7.50", "Yogur griego, granola, fruta de temporada, sirope y coco. Opción vegana."],
+        ["Açaí Bowl", "€9.50", "Açaí, banana, fresa, granola y mantequilla de maní. Vegano · Sin gluten."],
+        ["Ensalada Mediterránea", "€12.80", "Quinoa, burrata, cherry asados, pepino, aceitunas, rúcula, albahaca, menta y almendras. Vegana sin burrata."],
+        ["Halloumi, Aguacate & Remolacha", "€9.80", "Halloumi a la plancha, remolacha asada, aguacate, rúcula y nueces. Sin gluten."],
+        ["Tofu & Cherrys", "€9.00", "Tofu a la plancha, cherry variados, aguacate, verdes, cebolla morada y sésamo. Vegano · Sin gluten."]
+      ]
+    }
+  ]
+};
+
+function renderMenu(lang){
+  const container = document.getElementById("menuContent");
+  container.innerHTML = "";
+
+  menuData[lang].forEach(category => {
+    const card = document.createElement("div");
+    card.className = "menu-card";
+
+    card.innerHTML = `
+      <h3>${category.title}</h3>
+      ${category.items.map(item => `
+        <div class="item">
+          <div>
+            <div class="item-name">${item[0]}</div>
+            ${item[2] ? `<div class="item-desc">${item[2]}</div>` : ""}
+          </div>
+          <div class="price">${item[1]}</div>
+        </div>
+      `).join("")}
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function setLang(lang, button){
+  document.querySelectorAll(".lang-switch button").forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+  renderMenu(lang);
+}
+
+renderMenu("en");
+</script>
 
 </body>
 </html>
